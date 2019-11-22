@@ -168,9 +168,9 @@ export enum Step {
                     <span *ngIf="event.allDay" class="monthview-eventdetail-timecolumn">{{allDayLabel}}</span>
                     <span class="event-detail">  |  {{event.title}}</span>
                 </ion-item>
-                <ion-item *ngIf="selectedDate?.events.length==0">
-                    <div class="no-events-label">{{noEventsLabel}}</div>
-                </ion-item>
+                <div *ngIf="selectedDate?.events.length==0">
+                    <div class="no-events-label"></div>
+                </div>
             </ion-list>
         </ng-template>
         <ng-template #defaultWeekviewHeaderTemplate let-viewDate="viewDate">
