@@ -6,7 +6,6 @@ Ionic calendar directive
 [![GitHub License](https://img.shields.io/npm/l/ionic2-calendar.svg)](https://raw.githubusercontent.com/twinssbc/Ionic2-Calendar/master/LICENSE)
 
 # Demo
-https://stackblitz.com/edit/ionic-qfrkfz  
 https://twinssbc.github.io/Ionic2-Calendar/demo/
 
 # Dependency
@@ -530,7 +529,7 @@ The template provides customized view for all day event section (table part) in 
             </div>
         </ng-template>
 
-        <calendar ... [weekviewAllDayEventSectionTemplate]="template"></calendar>
+        <calendar ... [weekviewAllDayEventSectionTemplate]="template"></calendar>
 ```
 
 * weekviewNormalEventSectionTemplate (version >= 0.3)  
@@ -550,7 +549,7 @@ The template provides customized view for normal event section (table part) in t
             </div>
         </ng-template>
 
-        <calendar ... [weekviewNormalEventSectionTemplate]="template"></calendar>
+        <calendar ... [weekviewNormalEventSectionTemplate]="template"></calendar>
 ```
 
 * dayviewAllDayEventSectionTemplate (version >= 0.3)  
@@ -569,7 +568,7 @@ The template provides customized view for all day event section (table part) in 
             </div>
         </ng-template>
 
-        <calendar ... [dayviewAllDayEventSectionTemplate]="template"></calendar>
+        <calendar ... [dayviewAllDayEventSectionTemplate]="template"></calendar>
 ```
 
 * dayviewNormalEventSectionTemplate (version >= 0.3)  
@@ -589,12 +588,9 @@ The template provides customized view for normal event section (table part) in t
             </div>
         </ng-template>
 
-        <calendar ... [dayviewNormalEventSectionTemplate]="template"></calendar>
+        <calendar ... [dayviewNormalEventSectionTemplate]="template"></calendar>
 ```
-
-
-```
-* weekviewInactiveAllDayEventSectionTemplate (version >= 0.5)  
+* weekviewInactiveAllDayEventSectionTemplate (version >= 0.3)  
 Type: TemplateRef\<IWeekViewAllDayEventSectionTemplateContext\>    
 The template provides customized view for all day event section (table part) in the inactive weekview
 
@@ -615,7 +611,7 @@ The template provides customized view for all day event section (table part) in 
         <calendar ... [weekviewInactiveAllDayEventSectionTemplate]="template"></calendar>
 ```
 
-* weekviewInactiveNormalEventSectionTemplate (version >= 0.5)  
+* weekviewInactiveNormalEventSectionTemplate (version >= 0.3)  
 Type: TemplateRef\<IWeekViewNormalEventSectionTemplateContext\>    
 The template provides customized view for normal event section (table part) in the inactive weekview
 
@@ -635,7 +631,7 @@ The template provides customized view for normal event section (table part) in t
         <calendar ... [weekviewInactiveNormalEventSectionTemplate]="template"></calendar>
 ```
 
-* dayviewInactiveAllDayEventSectionTemplate (version >= 0.5)  
+* dayviewInactiveAllDayEventSectionTemplate (version >= 0.3)  
 Type: TemplateRef\<IDayViewAllDayEventSectionTemplateContext\>    
 The template provides customized view for all day event section (table part) in the inactive dayview
 
@@ -654,7 +650,7 @@ The template provides customized view for all day event section (table part) in 
         <calendar ... [dayviewInactiveAllDayEventSectionTemplate]="template"></calendar>
 ```
 
-* dayviewInactiveNormalEventSectionTemplate (version >= 0.5)  
+* dayviewInactiveNormalEventSectionTemplate (version >= 0.3)  
 Type: TemplateRef\<IDayViewNormalEventSectionTemplateContext\>    
 The template provides customized view for normal event section (table part) in the inactive dayview
 
@@ -675,7 +671,6 @@ The template provides customized view for normal event section (table part) in t
 ```
 
 
-
 # EventSource
 
 EventSource is an array of event object which contains at least below fields:
@@ -689,13 +684,13 @@ For example, if an allDay event starting from 2014-05-09, then startTime is
     var startTime = new Date(Date.UTC(2014, 4, 8));
 ```
 
-* endTime    
+* endTime    
 If allDay is set to true, the startTime has to be as a UTC date which time is set to 0:00 AM, because in an allDay event, only the date is considered, the exact time or timezone doesn't matter.    
 For example, if an allDay event ending to 2014-05-10, then endTime is
 ``` javascript
     var endTime = new Date(Date.UTC(2014, 4, 9));
 ```
-* allDay    
+* allDay    
 Indicates the event is allDay event or regular event
 
 **Note** The calendar only watches for the eventSource reference for performance consideration. That means only you manually reassign the eventSource value, the calendar gets notified, and this is usually fit to the scenario when the range is changed, you load a new data set from the backend. In case you want to manually insert/remove/update the element in the eventSource array, you can call instance method ‘loadEvents’ event to notify the calendar manually.
@@ -792,6 +787,3 @@ var mySwiper = document.querySelector('.swiper-container')['swiper'];
 
 * Error: Cannot read property 'dayHeaders' of undefined  
 Answer: Take a look at the Localization section. For version 0.4.x+, you need to manually register the locale.
-
-* Error: TypeError: event_1.startTime.getTime is not a function  
-Answer: This is due to the startTime field of the event object is not a valid Date object. Be aware that different browser has different implementation of new Date() constructor. Some date string format may not be supported. It is recommended to use millisecond or year/month/date parameters.
