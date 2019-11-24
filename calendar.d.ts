@@ -5,6 +5,7 @@ export interface IEvent {
     endTime: Date;
     startTime: Date;
     title: string;
+    id: string;
 }
 export interface IRange {
     startTime: Date;
